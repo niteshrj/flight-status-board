@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {Box, CircularProgress, Container, Grid, Paper, Typography} from '@mui/material';
 import {fetchFlightDetails} from "../api/api";
+import {Heading} from "./Heading";
 
 export const FlightDetails = () => {
     const {id} = useParams();
@@ -28,10 +29,8 @@ export const FlightDetails = () => {
     }, [id]);
 
     return (
-        <Container style={{marginTop: '20px', marginBottom: '20px'}}>
-            <Typography variant="h4" gutterBottom style={{color: '#1976D2', marginBottom: '20px'}}>
-                Flight Details
-            </Typography>
+        <Container style={{marginBottom: '20px'}}>
+            {Heading("Flight Details")}
             <Paper
                 elevation={3}
                 style={{
@@ -45,32 +44,32 @@ export const FlightDetails = () => {
                 {flight ? (
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
-                            <Typography variant="body1">
+                            <Typography variant="body1" style={{ fontSize: '18px' }}>
                                 <strong>Flight Number:</strong> {flight.flightNumber}
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <Typography variant="body1">
+                            <Typography variant="body1" style={{ fontSize: '18px' }}>
                                 <strong>Airline:</strong> {flight.airline}
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <Typography variant="body1">
+                            <Typography variant="body1" style={{ fontSize: '18px' }}>
                                 <strong>Origin:</strong> {flight.origin}
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <Typography variant="body1">
+                            <Typography variant="body1" style={{ fontSize: '18px' }}>
                                 <strong>Destination:</strong> {flight.destination}
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <Typography variant="body1">
+                            <Typography variant="body1" style={{ fontSize: '18px' }}>
                                 <strong>Departure Time:</strong> {flight.departureTime}
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <Typography variant="body1">
+                            <Typography variant="body1" style={{ fontSize: '18px' }}>
                                 <strong>Status:</strong>
                                 <span
                                     style={{

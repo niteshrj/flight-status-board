@@ -1,15 +1,9 @@
 import {DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
-import {Container, Paper, Typography} from "@mui/material";
+import {Container, Paper} from "@mui/material";
 import {useEffect, useState} from "react";
 import {fetchFlights} from "../api/api";
 import {useNavigate} from "react-router-dom";
-import {styled} from '@mui/system';
-
-const Heading = styled(Typography)(({theme}) => ({
-    fontSize: '24px',
-    fontWeight: 'bold',
-    marginBottom: theme.spacing(2),
-}));
+import {Heading} from "./Heading";
 
 export function FlightStatusTable() {
     const [flights, setFlights] = useState([]);
@@ -29,9 +23,10 @@ export function FlightStatusTable() {
     }, []);
 
     return (<Container>
-        <Heading>Flight Status</Heading>
+        {Heading(`Flight Status`)}
         <Paper>
             <DataGrid
+                sx={{ fontSize: '18px' }}
                 columns={columns}
                 rows={flights}
                 initialState={{
