@@ -1,6 +1,7 @@
 import {render, screen, waitFor} from '@testing-library/react';
 import {FlightStatusTable} from './FlightStatusTable';
 import {fetchFlights} from '../api/api';
+import {BrowserRouter} from "react-router-dom";
 
 jest.mock('../api/api', () => ({
     fetchFlights: jest.fn(() => Promise.resolve([
@@ -18,10 +19,14 @@ jest.mock('../api/api', () => ({
 
 describe('FlightStatusTable', () => {
     it('renders flight number column in the table', async () => {
-        render(<FlightStatusTable />);
+        render(<FlightStatusTable />, { wrapper: BrowserRouter });
 
         await waitFor(() => expect(fetchFlights).toHaveBeenCalled());
-        const flightNumberColumn = await screen.getByText('Flight Number');
+        const flightNumberColumn = await waitFor(() => screen.getByText('Flight Number'));
+        const origin = await waitFor(() => screen.getByText('Origin'));
+        const airline = await waitFor(() => screen.getByText('Airline'));
         expect(flightNumberColumn).toBeInTheDocument();
+        expect(origin).toBeInTheDocument();
+        expect(airline).toBeInTheDocument();
     });
 });
