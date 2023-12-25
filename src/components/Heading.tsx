@@ -2,7 +2,7 @@ import {styled} from "@mui/system";
 import {Typography} from "@mui/material";
 
 export const Heading = (text: any) => {
-    return <HeadingStyles>{text} <Icon src="/icons8-flight-50.png" alt="Favicon" /></HeadingStyles>
+    return <HeadingStyles>{text} <Icon src="/icons8-flight-50.png" alt="" /></HeadingStyles>
 }
 
 const Icon = styled('img')({

@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders with FlightDetails for the flight-details/:id path 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+  style={
+    {
+      "marginBottom": "20px",
+    }
+  }
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-bc2eyb-MuiTypography-root"
+  >
+    Flight Details
+     
+    <img
+      alt=""
+      className="css-9pi6fj"
+      src="/icons8-flight-50.png"
+    />
+  </p>
+  <div
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-3su884-MuiPaper-root"
+    style={
+      {
+        "backgroundColor": "#f4f4f4",
+        "borderRadius": "10px",
+        "boxShadow": "0px 4px 10px rgba(0, 0, 0, 0.1)",
+        "marginBottom": "20px",
+        "padding": "20px",
+      }
+    }
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b3l6lk-MuiGrid-root"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          style={
+            {
+              "fontSize": "18px",
+            }
+          }
+        >
+          <strong>
+            Flight Number:
+          </strong>
+           
+        </p>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b3l6lk-MuiGrid-root"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          style={
+            {
+              "fontSize": "18px",
+            }
+          }
+        >
+          <strong>
+            Airline:
+          </strong>
+           
+        </p>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b3l6lk-MuiGrid-root"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          style={
+            {
+              "fontSize": "18px",
+            }
+          }
+        >
+          <strong>
+            Origin:
+          </strong>
+           
+        </p>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b3l6lk-MuiGrid-root"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          style={
+            {
+              "fontSize": "18px",
+            }
+          }
+        >
+          <strong>
+            Destination:
+          </strong>
+           
+        </p>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b3l6lk-MuiGrid-root"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          style={
+            {
+              "fontSize": "18px",
+            }
+          }
+        >
+          <strong>
+            Departure Time:
+          </strong>
+           
+        </p>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1b3l6lk-MuiGrid-root"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          style={
+            {
+              "fontSize": "18px",
+            }
+          }
+        >
+          <strong>
+            Status:
+          </strong>
+          <span
+            style={
+              {
+                "color": "#4CAF50",
+                "fontWeight": "bold",
+                "marginLeft": "5px",
+              }
+            }
+          >
+            On Time
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App renders with FlightStatusTable for the root path 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-bc2eyb-MuiTypography-root"
+  >
+    Flight Status
+     
+    <img
+      alt=""
+      className="css-9pi6fj"
+      src="/icons8-flight-50.png"
+    />
+  </p>
+  <div
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+  >
+    <div
+      aria-colcount={6}
+      aria-multiselectable={false}
+      aria-rowcount={1}
+      className="MuiDataGrid-root MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-181jfdu-MuiDataGrid-root"
+      role="grid"
+    >
+      <div
+        className="MuiDataGrid-main css-204u17-MuiDataGrid-main"
+      >
+        <div
+          className="MuiDataGrid-columnHeaders MuiDataGrid-withBorderColor css-1iyq7zh-MuiDataGrid-columnHeaders"
+          role="presentation"
+          style={
+            {
+              "lineHeight": "56px",
+              "maxHeight": 56,
+              "minHeight": 56,
+            }
+          }
+        >
+          <div
+            className="MuiDataGrid-columnHeadersInner css-gl260s-MuiDataGrid-columnHeadersInner"
+            role="rowgroup"
+          />
+        </div>
+      </div>
+      <div
+        className="MuiDataGrid-footerContainer MuiDataGrid-withBorderColor css-wop1k0-MuiDataGrid-footerContainer"
+      >
+        <div />
+        <div
+          className="MuiTablePagination-root css-rtrcn9-MuiTablePagination-root"
+        >
+          <div
+            className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
+          >
+            <div
+              className="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
+            />
+            <p
+              className="MuiTablePagination-displayedRows css-levciy-MuiTablePagination-displayedRows"
+            >
+              0–0 of 0
+            </p>
+            <div
+              className="MuiTablePagination-actions"
+            >
+              <button
+                aria-label="Go to previous page"
+                className="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+                disabled={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={-1}
+                title="Go to previous page"
+                type="button"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="KeyboardArrowLeftIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-label="Go to next page"
+                className="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+                disabled={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={-1}
+                title="Go to next page"
+                type="button"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="KeyboardArrowRightIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

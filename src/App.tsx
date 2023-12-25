@@ -5,8 +5,8 @@ import {FlightDetails} from "./components/FlightDetails";
 function App() {
   return (
         <Routes>
-          <Route path="/" element={<FlightStatusTable/>}/>
-          <Route path="/flight-details/:id" element={<FlightDetails/>}/>
+          <Route path="/flight-status" element={<FlightStatusTable/>}/>
+          <Route path="/flight-status/:id" element={<FlightDetails/>}/>
         </Routes>
   )
 }

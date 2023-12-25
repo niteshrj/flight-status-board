@@ -36,7 +36,7 @@ export function FlightStatusTable() {
                 }}
                 pageSizeOptions={[10]}
                 onRowClick={(params) => {
-                    navigate(`/flight-details/${+params.id}`);
+                    navigate(`/flight-status/${+params.id}`);
                 }}
             />
         </Paper>
