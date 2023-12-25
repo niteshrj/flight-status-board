@@ -1,5 +1,5 @@
 import {DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
-import {Container, Paper} from "@mui/material";
+import {CircularProgress, Container, Paper} from "@mui/material";
 import {useEffect, useState} from "react";
 import {fetchFlights} from "../api/api";
 import {useNavigate} from "react-router-dom";
@@ -7,6 +7,7 @@ import {Heading} from "./Heading";
 
 export function FlightStatusTable() {
     const [flights, setFlights] = useState([]);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
         const fetchFlightsData = async () => {
@@ -15,6 +16,8 @@ export function FlightStatusTable() {
                 setFlights(response);
             } catch (error) {
                 console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
             }
         };
         fetchFlightsData();
@@ -25,6 +28,10 @@ export function FlightStatusTable() {
     return (<Container>
         {Heading(`Flight Status`)}
         <Paper>
+            {loading ? (
+                    // Show loader while data is loading
+                    <CircularProgress style={{ margin: '50px auto', display: 'block' }} />
+                ) : (
             <DataGrid
                 sx={{ fontSize: '18px' }}
                 columns={columns}
@@ -38,7 +45,7 @@ export function FlightStatusTable() {
                 onRowClick={(params) => {
                     navigate(`/flight-status/${+params.id}`);
                 }}
-            />
+            />)}
         </Paper>
     </Container>);
 }
