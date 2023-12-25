@@ -27,13 +27,6 @@ export const FlightDetails = () => {
         fetchData();
     }, [id]);
 
-    const statusColor = {
-        "On Time": '#4CAF50',
-        "Delayed": '#FFC107',
-        "Boarding": '#2196F3',
-        "Departed": '#FF5722'
-    }
-
     return (
         <Container style={{marginTop: '20px', marginBottom: '20px'}}>
             <Typography variant="h4" gutterBottom style={{color: '#1976D2', marginBottom: '20px'}}>
@@ -100,6 +93,13 @@ export const FlightDetails = () => {
         </Container>
     );
 };
+
+const statusColor = {
+    "On Time": '#4CAF50',
+    "Delayed": '#FFC107',
+    "Boarding": '#2196F3',
+    "Departed": '#FF5722'
+}
 
 interface Flight {
     id: string;

@@ -1,25 +1,15 @@
 import {DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
-import {Container, Paper} from "@mui/material";
+import {Container, Paper, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import {fetchFlights} from "../api/api";
 import {useNavigate} from "react-router-dom";
+import {styled} from '@mui/system';
 
-const columns: GridColDef[] = [
-    {field: 'flightNumber', headerName: 'Flight Number', width: 200},
-    {field: 'airline', headerName: 'Airline', width: 200},
-    {field: 'origin', headerName: 'Origin', width: 200},
-    {field: 'destination', headerName: 'Destination', width: 200},
-    {
-        field: 'departureTime',
-        headerName: 'Departure Time',
-        width: 250,
-        valueGetter: (params: GridValueGetterParams) => {
-            const utcDate = new Date(params.row.departureTime);
-            return `${utcDate.getHours()}:${utcDate.getMinutes()}`
-        },
-    },
-    {field: 'status', headerName: 'Status', width: 200},
-];
+const Heading = styled(Typography)(({theme}) => ({
+    fontSize: '24px',
+    fontWeight: 'bold',
+    marginBottom: theme.spacing(2),
+}));
 
 export function FlightStatusTable() {
     const [flights, setFlights] = useState([]);
@@ -39,6 +29,7 @@ export function FlightStatusTable() {
     }, []);
 
     return (<Container>
+        <Heading>Flight Status</Heading>
         <Paper>
             <DataGrid
                 columns={columns}
@@ -56,3 +47,22 @@ export function FlightStatusTable() {
         </Paper>
     </Container>);
 }
+
+const columns: GridColDef[] = [
+    {field: 'flightNumber', headerName: 'Flight Number', width: 200},
+    {field: 'airline', headerName: 'Airline', width: 200},
+    {field: 'origin', headerName: 'Origin', width: 200},
+    {field: 'destination', headerName: 'Destination', width: 200},
+    {
+        field: 'departureTime',
+        headerName: 'Departure Time',
+        width: 250,
+        valueGetter: (params: GridValueGetterParams) => {
+            const utcDate = new Date(params.row.departureTime);
+            const hours = utcDate.getUTCHours();
+            const minutes = utcDate.getUTCMinutes();
+            return `${hours}:${minutes}`;
+        },
+    },
+    {field: 'status', headerName: 'Status', width: 200},
+];
