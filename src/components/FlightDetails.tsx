@@ -28,6 +28,42 @@ export const FlightDetails = () => {
         fetchData();
     }, [id]);
 
+    const renderFlightInfo = () => (
+        <Grid container spacing={2}>
+            {flightRow('Flight Number', flight.flightNumber)}
+            {flightRow('Airline', flight.airline)}
+            {flightRow('Origin', flight.origin)}
+            {flightRow('Destination', flight.destination)}
+            {flightRow('Departure Time', flight.departureTime)}
+            {flightRow('Status', flight.status, true)}
+        </Grid>
+    );
+
+    const flightRow = (
+        label: string,
+        value: string,
+        coloredText?: boolean
+    ) => (
+        <Grid item xs={12} sm={6}>
+            <Typography variant="body1" style={{ fontSize: '18px' }}>
+                <strong>{label}:</strong>{' '}
+                {coloredText ? (
+                    <span
+                        style={{
+                            color: statusColor[flight.status],
+                            fontWeight: 'bold',
+                            marginLeft: '5px',
+                        }}
+                    >
+            {value}
+          </span>
+                ) : (
+                    value
+                )}
+            </Typography>
+        </Grid>
+    );
+
     return (
         <Container style={{marginBottom: '20px'}}>
             {Heading("Flight Details")}
@@ -41,49 +77,7 @@ export const FlightDetails = () => {
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
                 }}
             >
-                {flight ? (
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ fontSize: '18px' }}>
-                                <strong>Flight Number:</strong> {flight.flightNumber}
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ fontSize: '18px' }}>
-                                <strong>Airline:</strong> {flight.airline}
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ fontSize: '18px' }}>
-                                <strong>Origin:</strong> {flight.origin}
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ fontSize: '18px' }}>
-                                <strong>Destination:</strong> {flight.destination}
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ fontSize: '18px' }}>
-                                <strong>Departure Time:</strong> {flight.departureTime}
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Typography variant="body1" style={{ fontSize: '18px' }}>
-                                <strong>Status:</strong>
-                                <span
-                                    style={{
-                                        color: statusColor[flight.status],
-                                        fontWeight: 'bold',
-                                        marginLeft: '5px',
-                                    }}
-                                >
-                                    {flight.status}
-                                </span>
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                ) : (
+                {flight ? renderFlightInfo() : (
                     <Box textAlign="center">
                         <CircularProgress/>
                     </Box>

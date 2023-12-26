@@ -30,7 +30,6 @@ export function FlightStatusTable() {
         {Heading(`Flight Status`)}
         <Paper>
             {loading ? (
-                    // Show loader while data is loading
                     <CircularProgress style={{ margin: '50px auto', display: 'block' }} />
                 ) : (
             <DataGrid
@@ -64,9 +63,7 @@ const columns: GridColDef[] = [
             const utcDate = new Date(params.row.departureTime);
             const hours = utcDate.getUTCHours();
             const minutes = utcDate.getUTCMinutes();
-            return <div style={{ textAlign: 'center' }}>
-                    {`${hours}:${minutes}`}
-                </div>;
+            return `${hours}:${minutes}`;
         },
     },
     {field: 'status', headerName: 'Status', width: 200},
