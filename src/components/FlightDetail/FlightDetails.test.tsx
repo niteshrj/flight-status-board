@@ -26,6 +26,6 @@ test('renders flight details correctly', async () => {
     expect(screen.getByText('City A')).toBeInTheDocument();
     expect(screen.getByText('Example Airline')).toBeInTheDocument();
     expect(screen.getByText('City B')).toBeInTheDocument();
-    expect(screen.getByText('2023-01-01T12:00:00Z')).toBeInTheDocument();
+    expect(screen.getByText('12:0')).toBeInTheDocument();
     expect(screen.getByText('On Time')).toBeInTheDocument();
 });

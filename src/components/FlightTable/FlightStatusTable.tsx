@@ -1,12 +1,11 @@
-import {DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
+import {DataGrid} from '@mui/x-data-grid';
 import {CircularProgress, Container, Paper} from "@mui/material";
 import {useEffect, useState} from "react";
 import {fetchFlights} from "../../api/flightApi";
 import {useNavigate} from "react-router-dom";
 import {Heading} from "../Heading";
 import {FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS} from "../../constants";
-import {getStatusColor} from "../Status";
-import {formatTime} from "../../utils/DateTimeFormater";
+import {columns} from "./Columns";
 
 export function FlightStatusTable() {
     const [flights, setFlights] = useState([]);
@@ -57,35 +56,3 @@ export function FlightStatusTable() {
         </Paper>
     </Container>);
 }
-
-const columns: GridColDef[] = [
-    {field: 'flightNumber', headerName: 'Flight Number', width: 200},
-    {field: 'airline', headerName: 'Airline', width: 200},
-    {field: 'origin', headerName: 'Origin', width: 200},
-    {field: 'destination', headerName: 'Destination', width: 160},
-    {
-        field: 'departureTime',
-        headerName: 'Departure Time',
-        width: 250,
-        align: 'center',
-        headerAlign: 'center',
-        valueGetter: (params: GridValueGetterParams) => {
-            return formatTime(params.row.departureTime)
-        },
-    },
-    {
-        field: 'status',
-        headerName: 'Status',
-        width: 200,
-        renderCell: (params: any) => {
-            return <span
-                style={{
-                    color: getStatusColor(params.row.status),
-                }}
-            >
-          {params.row.status}
-        </span>
-        }
-    },
-];
-
