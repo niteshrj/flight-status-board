@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import {CircularProgress, Container, Grid, Paper, Typography} from '@mui/material';
+import {CircularProgress, Container, Grid, Paper} from '@mui/material';
 import {fetchFlightDetails} from "../api/api";
 import {Heading} from "./Heading";
+import {FlightInfo} from "./FlightInfo";
 
 export const FlightDetails = () => {
     const {id} = useParams();
@@ -33,37 +34,12 @@ export const FlightDetails = () => {
 
     const renderFlightInfo = () => (
         <Grid container spacing={2}>
-            {flightRow('Flight Number', flight.flightNumber)}
-            {flightRow('Airline', flight.airline)}
-            {flightRow('Origin', flight.origin)}
-            {flightRow('Destination', flight.destination)}
-            {flightRow('Departure Time', flight.departureTime)}
-            {flightRow('Status', flight.status, true)}
-        </Grid>
-    );
-
-    const flightRow = (
-        label: string,
-        value: string,
-        coloredText?: boolean
-    ) => (
-        <Grid item xs={12} sm={6}>
-            <Typography variant="body1" style={{ fontSize: '18px' }}>
-                <strong>{label}:</strong>{' '}
-                {coloredText ? (
-                    <span
-                        style={{
-                            color: statusColor[flight.status],
-                            fontWeight: 'bold',
-                            marginLeft: '5px',
-                        }}
-                    >
-            {value}
-          </span>
-                ) : (
-                    value
-                )}
-            </Typography>
+            <FlightInfo label="Flight Number" value={flight.flightNumber} />
+            <FlightInfo label="Airline" value={flight.airline} />
+            <FlightInfo label="Origin" value={flight.origin} />
+            <FlightInfo label="Destination" value={flight.destination} />
+            <FlightInfo label="Departure Time" value={flight.departureTime} />
+            <FlightInfo label="Status" value={flight.status} coloredText statusColor={statusColor[flight.status]} />
         </Grid>
     );
 
