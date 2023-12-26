@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import {Box, CircularProgress, Container, Grid, Paper, Typography} from '@mui/material';
+import {CircularProgress, Container, Grid, Paper, Typography} from '@mui/material';
 import {fetchFlightDetails} from "../api/api";
 import {Heading} from "./Heading";
 
 export const FlightDetails = () => {
     const {id} = useParams();
+    const [loading, setLoading] = useState(true);
     const [flight, setFlight] = useState<Flight>({
         "id": "",
         "flightNumber": "",
@@ -23,6 +24,8 @@ export const FlightDetails = () => {
                 setFlight(flightDetails);
             } catch (error: any) {
                 console.error('Error fetching flight details:', error.message);
+            } finally {
+                setLoading(false);
             }
         };
         fetchData();
@@ -77,11 +80,10 @@ export const FlightDetails = () => {
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
                 }}
             >
-                {flight ? renderFlightInfo() : (
-                    <Box textAlign="center">
-                        <CircularProgress/>
-                    </Box>
-                )}
+                {loading ? (
+                        <CircularProgress style={{ margin: '50px auto', display: 'block' }} />
+                    ) : renderFlightInfo()
+                }
             </Paper>
         </Container>
     );
