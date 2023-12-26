@@ -1,10 +1,11 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {CircularProgress, Container, Grid, Paper} from '@mui/material';
-import {fetchFlightDetails} from "../api/api";
-import {Heading} from "./Heading";
+import {fetchFlightDetails} from "../../api/flightApi";
+import {Heading} from "../Heading";
 import {FlightInfo} from "./FlightInfo";
-import {FlightStatus, getStatusColor} from "./Status";
+import {FlightStatus, getStatusColor} from "../Status";
+import {formatTime} from "../../utils/DateTimeFormater";
 
 export const FlightDetails = () => {
     const {id} = useParams();
@@ -39,7 +40,7 @@ export const FlightDetails = () => {
             <FlightInfo label="Airline" value={flight.airline} />
             <FlightInfo label="Origin" value={flight.origin} />
             <FlightInfo label="Destination" value={flight.destination} />
-            <FlightInfo label="Departure Time" value={flight.departureTime} />
+            <FlightInfo label="Departure Time" value={formatTime(flight.departureTime)} />
             <FlightInfo label="Status" value={flight.status} coloredText statusColor={getStatusColor(flight.status)} />
         </Grid>
     );

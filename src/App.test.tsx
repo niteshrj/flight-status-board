@@ -2,7 +2,7 @@ import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
-jest.mock('./api/api', () => ({
+jest.mock('./api/flightApi', () => ({
     fetchFlightDetails: jest.fn(() => Promise.resolve(        {
         id: 1,
         flightNumber: 'ABC123',

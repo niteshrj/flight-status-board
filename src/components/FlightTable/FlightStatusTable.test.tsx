@@ -1,9 +1,9 @@
 import {render, screen, waitFor} from '@testing-library/react';
 import {FlightStatusTable} from './FlightStatusTable';
-import {fetchFlights} from '../api/api';
+import {fetchFlights} from '../../api/flightApi';
 import {BrowserRouter} from "react-router-dom";
 
-jest.mock('../api/api', () => ({
+jest.mock('../../api/flightApi', () => ({
     fetchFlights: jest.fn(() => Promise.resolve([
         {
             id: 1,

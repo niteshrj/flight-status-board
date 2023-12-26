@@ -7,7 +7,7 @@ export const Heading = (text: any) => {
 
 const Icon = styled('img')({
     marginRight: '8px',
-    marginTop: '8px'// Adjust the spacing between the icon and text as needed
+    marginTop: '8px'
 });
 
 const HeadingStyles = styled(Typography)(({theme}) => ({

@@ -1,11 +1,12 @@
 import {DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
 import {CircularProgress, Container, Paper} from "@mui/material";
 import {useEffect, useState} from "react";
-import {fetchFlights} from "../api/api";
+import {fetchFlights} from "../../api/flightApi";
 import {useNavigate} from "react-router-dom";
-import {Heading} from "./Heading";
-import {FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS} from "../constants";
-import {getStatusColor} from "./Status";
+import {Heading} from "../Heading";
+import {FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS} from "../../constants";
+import {getStatusColor} from "../Status";
+import {formatTime} from "../../utils/DateTimeFormater";
 
 export function FlightStatusTable() {
     const [flights, setFlights] = useState([]);
@@ -29,7 +30,13 @@ export function FlightStatusTable() {
 
     return (<Container>
         {Heading(`Flight Status`)}
-        <Paper>
+        <Paper
+            style={{
+                backgroundColor: '#f4f4f4',
+                borderRadius: '10px',
+                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+            }}
+        >
             {loading ? (
                     <CircularProgress style={{ margin: '50px auto', display: 'block' }} />
                 ) : (
@@ -63,10 +70,7 @@ const columns: GridColDef[] = [
         align: 'center',
         headerAlign: 'center',
         valueGetter: (params: GridValueGetterParams) => {
-            const utcDate = new Date(params.row.departureTime);
-            const hours = utcDate.getUTCHours();
-            const minutes = utcDate.getUTCMinutes();
-            return `${hours}:${minutes}`;
+            return formatTime(params.row.departureTime)
         },
     },
     {
@@ -84,3 +88,4 @@ const columns: GridColDef[] = [
         }
     },
 ];
+

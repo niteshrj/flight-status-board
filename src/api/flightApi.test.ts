@@ -1,6 +1,6 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { fetchFlights } from './api';
+import { fetchFlights } from './flightApi';
 
 describe('fetchFlights', () => {
     let mock: any;
