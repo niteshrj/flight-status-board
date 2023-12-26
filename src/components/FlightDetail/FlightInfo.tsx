@@ -27,7 +27,7 @@ export const FlightInfo: React.FC<FlightInfoRowProps> =
         </Grid>
     );
 
-interface FlightInfoRowProps {
+export interface FlightInfoRowProps {
     label: string;
     value: string;
     coloredText?: boolean;

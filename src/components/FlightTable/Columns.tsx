@@ -1,5 +1,5 @@
 import {GridColDef, GridValueGetterParams} from "@mui/x-data-grid";
-import {formatTime} from "../../utils/DateTimeFormater";
+import {formatTime} from "../../utils/DateTimeFormatter";
 import {getStatusColor} from "../Status";
 
 export const columns: GridColDef[] = [

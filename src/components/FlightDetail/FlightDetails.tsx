@@ -5,7 +5,7 @@ import {fetchFlightDetails} from "../../api/flightApi";
 import {Heading} from "../Heading";
 import {FlightInfo} from "./FlightInfo";
 import {FlightStatus, getStatusColor} from "../Status";
-import {formatTime} from "../../utils/DateTimeFormater";
+import {formatTime} from "../../utils/DateTimeFormatter";
 
 export const FlightDetails = () => {
     const {id} = useParams();
