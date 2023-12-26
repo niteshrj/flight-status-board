@@ -4,6 +4,7 @@ import {CircularProgress, Container, Grid, Paper} from '@mui/material';
 import {fetchFlightDetails} from "../api/api";
 import {Heading} from "./Heading";
 import {FlightInfo} from "./FlightInfo";
+import {FlightStatus, getStatusColor} from "./Status";
 
 export const FlightDetails = () => {
     const {id} = useParams();
@@ -15,7 +16,7 @@ export const FlightDetails = () => {
         "origin": "",
         "destination": "",
         "departureTime": "",
-        "status": "On Time"
+        "status": FlightStatus.OnTime
     });
 
     useEffect(() => {
@@ -39,7 +40,7 @@ export const FlightDetails = () => {
             <FlightInfo label="Origin" value={flight.origin} />
             <FlightInfo label="Destination" value={flight.destination} />
             <FlightInfo label="Departure Time" value={flight.departureTime} />
-            <FlightInfo label="Status" value={flight.status} coloredText statusColor={statusColor[flight.status]} />
+            <FlightInfo label="Status" value={flight.status} coloredText statusColor={getStatusColor(flight.status)} />
         </Grid>
     );
 
@@ -65,13 +66,6 @@ export const FlightDetails = () => {
     );
 };
 
-const statusColor = {
-    "On Time": '#4CAF50',
-    "Delayed": '#FFC107',
-    "Boarding": '#2196F3',
-    "Departed": '#FF5722'
-}
-
 interface Flight {
     id: string;
     flightNumber: string;
@@ -79,5 +73,5 @@ interface Flight {
     origin: string;
     destination: string;
     departureTime: string;
-    status: "On Time" | "Delayed" | "Boarding" | "Departed";
+    status: FlightStatus;
 }

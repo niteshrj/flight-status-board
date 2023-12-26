@@ -5,6 +5,7 @@ import {fetchFlights} from "../api/api";
 import {useNavigate} from "react-router-dom";
 import {Heading} from "./Heading";
 import {FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS} from "../constants";
+import {getStatusColor} from "./Status";
 
 export function FlightStatusTable() {
     const [flights, setFlights] = useState([]);
@@ -54,11 +55,13 @@ const columns: GridColDef[] = [
     {field: 'flightNumber', headerName: 'Flight Number', width: 200},
     {field: 'airline', headerName: 'Airline', width: 200},
     {field: 'origin', headerName: 'Origin', width: 200},
-    {field: 'destination', headerName: 'Destination', width: 200},
+    {field: 'destination', headerName: 'Destination', width: 160},
     {
         field: 'departureTime',
         headerName: 'Departure Time',
         width: 250,
+        align: 'center',
+        headerAlign: 'center',
         valueGetter: (params: GridValueGetterParams) => {
             const utcDate = new Date(params.row.departureTime);
             const hours = utcDate.getUTCHours();
@@ -66,5 +69,18 @@ const columns: GridColDef[] = [
             return `${hours}:${minutes}`;
         },
     },
-    {field: 'status', headerName: 'Status', width: 200},
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 200,
+        renderCell: (params: any) => {
+            return <span
+                style={{
+                    color: getStatusColor(params.row.status),
+                }}
+            >
+          {params.row.status}
+        </span>
+        }
+    },
 ];
