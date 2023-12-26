@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {fetchFlights} from "../api/api";
 import {useNavigate} from "react-router-dom";
 import {Heading} from "./Heading";
+import {FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS} from "../constants";
 
 export function FlightStatusTable() {
     const [flights, setFlights] = useState([]);
@@ -21,7 +22,7 @@ export function FlightStatusTable() {
             }
         };
         fetchFlightsData();
-        const intervalId = setInterval(fetchFlightsData, 3000);
+        const intervalId = setInterval(fetchFlightsData, FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS);
         return () => clearInterval(intervalId);
     }, []);
 
@@ -63,7 +64,9 @@ const columns: GridColDef[] = [
             const utcDate = new Date(params.row.departureTime);
             const hours = utcDate.getUTCHours();
             const minutes = utcDate.getUTCMinutes();
-            return `${hours}:${minutes}`;
+            return <div style={{ textAlign: 'center' }}>
+                    {`${hours}:${minutes}`}
+                </div>;
         },
     },
     {field: 'status', headerName: 'Status', width: 200},
