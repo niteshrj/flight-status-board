@@ -11,19 +11,18 @@ export const FlightInfo: React.FC<FlightInfoRowProps> =
         <Grid item xs={12} sm={6}>
             <Typography variant="body1" style={{fontSize: '18px'}}>
                 <strong>{label}:</strong>{' '}
-                {coloredText ? (
-                    <span
+                { coloredText
+                    ? (<span
                         style={{
                             color: statusColor,
                             fontWeight: 'bold',
                             marginLeft: '5px',
                         }}
                     >
-          {value}
-        </span>
-                ) : (
-                    value
-                )}
+                    {value}
+                    </span>)
+                    : value
+                }
             </Typography>
         </Grid>
     );

@@ -27,32 +27,34 @@ export function FlightStatusTable() {
         return () => clearInterval(intervalId);
     }, []);
 
-    return (<Container>
-        {Heading(`Flight Status`)}
-        <Paper
-            style={{
-                backgroundColor: '#f4f4f4',
-                borderRadius: '10px',
-                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-            }}
-        >
-            {loading ? (
-                    <CircularProgress style={{ margin: '50px auto', display: 'block' }} />
+    return (
+        <Container>
+            {Heading(`Flight Status`)}
+            <Paper
+                style={{
+                    backgroundColor: '#f4f4f4',
+                    borderRadius: '10px',
+                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+                }}
+            >
+                {loading ? (
+                    <CircularProgress style={{margin: '50px auto', display: 'block'}}/>
                 ) : (
-            <DataGrid
-                sx={{ fontSize: '18px' }}
-                columns={columns}
-                rows={flights}
-                initialState={{
-                    pagination: {
-                        paginationModel: {pageSize: 10},
-                    },
-                }}
-                pageSizeOptions={[10]}
-                onRowClick={(params) => {
-                    navigate(`/flight-status/${+params.id}`);
-                }}
-            />)}
-        </Paper>
-    </Container>);
+                    <DataGrid
+                        sx={{fontSize: '18px'}}
+                        columns={columns}
+                        rows={flights}
+                        initialState={{
+                            pagination: {
+                                paginationModel: {pageSize: 10},
+                            },
+                        }}
+                        pageSizeOptions={[10]}
+                        onRowClick={(params) => {
+                            navigate(`/flight-status/${+params.id}`);
+                        }}
+                    />)}
+            </Paper>
+        </Container>
+    );
 }

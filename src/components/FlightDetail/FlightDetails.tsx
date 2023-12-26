@@ -36,12 +36,12 @@ export const FlightDetails = () => {
 
     const renderFlightInfo = () => (
         <Grid container spacing={2}>
-            <FlightInfo label="Flight Number" value={flight.flightNumber} />
-            <FlightInfo label="Airline" value={flight.airline} />
-            <FlightInfo label="Origin" value={flight.origin} />
-            <FlightInfo label="Destination" value={flight.destination} />
-            <FlightInfo label="Departure Time" value={formatTime(flight.departureTime)} />
-            <FlightInfo label="Status" value={flight.status} coloredText statusColor={getStatusColor(flight.status)} />
+            <FlightInfo label="Flight Number" value={flight.flightNumber}/>
+            <FlightInfo label="Airline" value={flight.airline}/>
+            <FlightInfo label="Origin" value={flight.origin}/>
+            <FlightInfo label="Destination" value={flight.destination}/>
+            <FlightInfo label="Departure Time" value={formatTime(flight.departureTime)}/>
+            <FlightInfo label="Status" value={flight.status} coloredText statusColor={getStatusColor(flight.status)}/>
         </Grid>
     );
 
@@ -59,8 +59,8 @@ export const FlightDetails = () => {
                 }}
             >
                 {loading ? (
-                        <CircularProgress style={{ margin: '50px auto', display: 'block' }} />
-                    ) : renderFlightInfo()
+                    <CircularProgress style={{margin: '50px auto', display: 'block'}}/>
+                ) : renderFlightInfo()
                 }
             </Paper>
         </Container>
