@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import { fetchFlights } from '../../api/flightApi';
 import { useNavigate } from 'react-router-dom';
 import { Heading } from '../Heading';
-import { FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS } from '../../constants';
+import { FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS } from '../../utils/constants';
 import { columns } from './Columns';
+import { labels } from '../../labels/labels';
 
 export function FlightStatusTable() {
   const [flights, setFlights] = useState([]);
@@ -29,7 +30,7 @@ export function FlightStatusTable() {
 
   return (
     <Container>
-      {Heading(`Flight Status`)}
+      {Heading(labels.flightStatusHeading)}
       <Paper
         style={{
           backgroundColor: '#f4f4f4',

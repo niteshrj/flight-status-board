@@ -6,6 +6,7 @@ import { Heading } from '../Heading';
 import { FlightInfo } from './FlightInfo';
 import { FlightStatus, getStatusColor } from '../Status';
 import { formatTime } from '../../utils/DateTimeFormatter';
+import { labels } from '../../labels/labels';
 
 export const FlightDetails = () => {
   const { id } = useParams();
@@ -36,18 +37,18 @@ export const FlightDetails = () => {
 
   const renderFlightInfo = () => (
     <Grid container spacing={2}>
-      <FlightInfo label="Flight Number" value={flight.flightNumber} />
-      <FlightInfo label="Airline" value={flight.airline} />
-      <FlightInfo label="Origin" value={flight.origin} />
-      <FlightInfo label="Destination" value={flight.destination} />
-      <FlightInfo label="Departure Time" value={formatTime(flight.departureTime)} />
-      <FlightInfo label="Status" value={flight.status} coloredText statusColor={getStatusColor(flight.status)} />
+      <FlightInfo label={labels.flightNumber} value={flight.flightNumber} />
+      <FlightInfo label={labels.airline} value={flight.airline} />
+      <FlightInfo label={labels.origin} value={flight.origin} />
+      <FlightInfo label={labels.destination} value={flight.destination} />
+      <FlightInfo label={labels.departureTime} value={formatTime(flight.departureTime)} />
+      <FlightInfo label={labels.status} value={flight.status} coloredText statusColor={getStatusColor(flight.status)} />
     </Grid>
   );
 
   return (
     <Container style={{ marginBottom: '20px' }}>
-      {Heading('Flight Details')}
+      {Heading(labels.flightDetailsHeading)}
       <Paper
         elevation={3}
         style={{
