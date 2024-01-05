@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest --config src/config/jest.config.cjs --coverage --silent"
+    "test": "jest --config config/jest.config.cjs --coverage --silent"
   },
   "jest": {
     "transformIgnorePatterns": [

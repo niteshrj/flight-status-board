@@ -23,7 +23,7 @@
   },
   "include": [
     "src",
-    "./src/config/setupTests.ts"
+    "./config/setupTests.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }],
   "types": ["node", "jest", "@testing-library/jest-dom", "testing-library __jest-dom"]
