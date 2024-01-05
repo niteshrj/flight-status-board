@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CircularProgress, Container, Grid, Paper } from '@mui/material';
 import { fetchFlightDetails } from '../../api/flightApi';
-import { Heading } from '../Heading';
+import { Heading } from '../../Layout/Heading';
 import { FlightInfo } from './FlightInfo';
 import { FlightStatus, getStatusColor } from '../Status';
 import { formatTime } from '../../utils/DateTimeFormatter';
 import { labels } from '../../labels/labels';
 import { containerStyles, paperStyles } from './FlightDetailsStyles';
 import { circularProgressStyles } from '../commonStyles';
+import Body from '../../Layout/Body';
 
 export const FlightDetails = () => {
   const { id } = useParams();
@@ -49,12 +50,14 @@ export const FlightDetails = () => {
   );
 
   return (
-    <Container style={containerStyles}>
-      {Heading(labels.flightDetailsHeading)}
-      <Paper elevation={3} style={paperStyles}>
-        {loading ? <CircularProgress style={circularProgressStyles} /> : renderFlightInfo()}
-      </Paper>
-    </Container>
+    <Body>
+      <Container style={containerStyles}>
+        {Heading(labels.flightDetailsHeading)}
+        <Paper elevation={3} style={paperStyles}>
+          {loading ? <CircularProgress style={circularProgressStyles} /> : renderFlightInfo()}
+        </Paper>
+      </Container>
+    </Body>
   );
 };
 

@@ -8,9 +8,9 @@ export const NotFoundPage = () => {
         Page Not Found
       </Typography>
       <Typography variant="body1" align="center" style={{ marginTop: '20px' }}>
-        The page you are looking for might have been removed or doesn't exist.
+        The page you are looking doesn't exist.
       </Typography>
-      <Button variant="contained" color="primary" component={Link} to="/flight-status" style={{ marginTop: '20px' }}>
+      <Button variant="contained" color="primary" component={Link} to="/" style={{ marginTop: '20px' }}>
         Go to Home
       </Button>
     </Container>

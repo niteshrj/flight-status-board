@@ -3,12 +3,13 @@ import { CircularProgress, Container, Paper } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { fetchFlights } from '../../api/flightApi';
 import { useNavigate } from 'react-router-dom';
-import { Heading } from '../Heading';
+import { Heading } from '../../Layout/Heading';
 import { FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS } from '../../utils/constants';
 import { columns } from './Columns';
 import { labels } from '../../labels/labels';
 import { paperStyles } from './FlightStatusTableStyles';
 import { circularProgressStyles } from '../commonStyles';
+import Body from '../../Layout/Body';
 
 export function FlightStatusTable() {
   const [flights, setFlights] = useState([]);
@@ -31,28 +32,30 @@ export function FlightStatusTable() {
   }, []);
 
   return (
-    <Container>
-      {Heading(labels.flightStatusHeading)}
-      <Paper style={paperStyles}>
-        {loading ? (
-          <CircularProgress style={circularProgressStyles} />
-        ) : (
-          <DataGrid
-            sx={{ fontSize: '18px' }}
-            columns={columns}
-            rows={flights}
-            initialState={{
-              pagination: {
-                paginationModel: { pageSize: 10 },
-              },
-            }}
-            pageSizeOptions={[10]}
-            onRowClick={(params) => {
-              navigate(`/flight-status/${+params.id}`);
-            }}
-          />
-        )}
-      </Paper>
-    </Container>
+    <Body>
+      <Container>
+        {Heading(labels.flightStatusHeading)}
+        <Paper style={paperStyles}>
+          {loading ? (
+            <CircularProgress style={circularProgressStyles} />
+          ) : (
+            <DataGrid
+              sx={{ fontSize: '18px' }}
+              columns={columns}
+              rows={flights}
+              initialState={{
+                pagination: {
+                  paginationModel: { pageSize: 10 },
+                },
+              }}
+              pageSizeOptions={[10]}
+              onRowClick={(params) => {
+                navigate(`/flight-status/${+params.id}`);
+              }}
+            />
+          )}
+        </Paper>
+      </Container>
+    </Body>
   );
 }

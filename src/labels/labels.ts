@@ -1,5 +1,5 @@
 export const labels = {
-  flightStatusHeading: 'Flight Status',
+  flightStatusHeading: 'Live Flights Status',
   flightDetailsHeading: 'Flight Details',
   flightNumber: 'Flight Number',
   airline: 'Airline',
