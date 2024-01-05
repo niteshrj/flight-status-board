@@ -10,8 +10,10 @@ import { labels } from '../../labels/labels';
 import { paperStyles } from './FlightStatusTableStyles';
 import { circularProgressStyles } from '../commonStyles';
 import Body from '../../Layout/Body';
+import ErrorPage from '../../error/ErrorPage';
 
 export function FlightStatusTable() {
+  const [error, setError] = useState(false);
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -20,16 +22,24 @@ export function FlightStatusTable() {
       try {
         const response = await fetchFlights();
         setFlights(response);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
+        setError(true);
       }
     };
     fetchFlightsData();
     const intervalId = setInterval(fetchFlightsData, FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS);
     return () => clearInterval(intervalId);
   }, []);
+
+  if (error) {
+    return (
+      <Body>
+        <ErrorPage errorMessage={labels.flightStatusNotFoundErrorMessage} />
+      </Body>
+    );
+  }
 
   return (
     <Body>

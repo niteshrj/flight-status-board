@@ -10,8 +10,10 @@ import { labels } from '../../labels/labels';
 import { containerStyles, paperStyles } from './FlightDetailsStyles';
 import { circularProgressStyles } from '../commonStyles';
 import Body from '../../Layout/Body';
+import ErrorPage from '../../error/ErrorPage';
 
 export const FlightDetails = () => {
+  const [error, setError] = useState(false);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [flight, setFlight] = useState<Flight>({
@@ -29,10 +31,10 @@ export const FlightDetails = () => {
       try {
         const flightDetails = await fetchFlightDetails(id);
         setFlight(flightDetails);
+        setLoading(false);
       } catch (error: any) {
         console.error('Error fetching flight details:', error.message);
-      } finally {
-        setLoading(false);
+        setError(true);
       }
     };
     fetchData();
@@ -48,6 +50,14 @@ export const FlightDetails = () => {
       <FlightInfo label={labels.status} value={flight.status} coloredText statusColor={getStatusColor(flight.status)} />
     </Grid>
   );
+
+  if (error) {
+    return (
+      <Body>
+        <ErrorPage errorMessage={labels.flightDetailsNotFoundErrorMessage} />
+      </Body>
+    );
+  }
 
   return (
     <Body>

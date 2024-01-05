@@ -7,4 +7,7 @@ export const labels = {
   destination: 'Destination',
   departureTime: 'Departure Time',
   status: 'Status',
+  flightDetailsNotFoundErrorMessage: 'The requested flight details are unavailable.',
+  flightStatusNotFoundErrorMessage: 'Flight Status could not be fetched.',
+  pageNotFoundErrorMessage: 'Page Not Found. Please go to Home',
 };

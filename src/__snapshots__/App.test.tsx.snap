@@ -119,26 +119,35 @@ exports[`App renders with FlightStatusTable for the root path 1`] = `
   </header>
   <div
     className="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+    style={
+      {
+        "minHeight": "100vh",
+        "paddingTop": "50px",
+        "textAlign": "center",
+      }
+    }
   >
     <h4
-      className="MuiTypography-root MuiTypography-h4 MuiTypography-alignCenter css-149xwtl-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
       style={
         {
-          "marginTop": "50px",
+          "color": "#ff3d00",
+          "marginBottom": "20px",
         }
       }
     >
-      Page Not Found
+      Oops! Something went wrong...
     </h4>
     <p
-      className="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter css-1uwgr7b-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
       style={
         {
-          "marginTop": "20px",
+          "color": "#616161",
+          "marginBottom": "40px",
         }
       }
     >
-      The page you are looking doesn't exist.
+      Page Not Found. Please go to Home
     </p>
     <a
       className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
@@ -158,7 +167,12 @@ exports[`App renders with FlightStatusTable for the root path 1`] = `
       onTouchStart={[Function]}
       style={
         {
-          "marginTop": "20px",
+          "backgroundColor": "#2196f3",
+          "borderRadius": "5px",
+          "color": "#fff",
+          "padding": "10px 20px",
+          "textDecoration": "none",
+          "textTransform": "uppercase",
         }
       }
       tabIndex={0}
