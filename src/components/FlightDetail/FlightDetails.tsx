@@ -7,6 +7,8 @@ import { FlightInfo } from './FlightInfo';
 import { FlightStatus, getStatusColor } from '../Status';
 import { formatTime } from '../../utils/DateTimeFormatter';
 import { labels } from '../../labels/labels';
+import { containerStyles, paperStyles } from './FlightDetailsStyles';
+import { circularProgressStyles } from '../commonStyles';
 
 export const FlightDetails = () => {
   const { id } = useParams();
@@ -47,19 +49,10 @@ export const FlightDetails = () => {
   );
 
   return (
-    <Container style={{ marginBottom: '20px' }}>
+    <Container style={containerStyles}>
       {Heading(labels.flightDetailsHeading)}
-      <Paper
-        elevation={3}
-        style={{
-          padding: '20px',
-          marginBottom: '20px',
-          backgroundColor: '#f4f4f4',
-          borderRadius: '10px',
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-        }}
-      >
-        {loading ? <CircularProgress style={{ margin: '50px auto', display: 'block' }} /> : renderFlightInfo()}
+      <Paper elevation={3} style={paperStyles}>
+        {loading ? <CircularProgress style={circularProgressStyles} /> : renderFlightInfo()}
       </Paper>
     </Container>
   );

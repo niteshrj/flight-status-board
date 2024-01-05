@@ -7,6 +7,8 @@ import { Heading } from '../Heading';
 import { FLIGHTS_FETCH_REFRESH_RATE_IN_MILLIS } from '../../utils/constants';
 import { columns } from './Columns';
 import { labels } from '../../labels/labels';
+import { paperStyles } from './FlightStatusTableStyles';
+import { circularProgressStyles } from '../commonStyles';
 
 export function FlightStatusTable() {
   const [flights, setFlights] = useState([]);
@@ -31,15 +33,9 @@ export function FlightStatusTable() {
   return (
     <Container>
       {Heading(labels.flightStatusHeading)}
-      <Paper
-        style={{
-          backgroundColor: '#f4f4f4',
-          borderRadius: '10px',
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-        }}
-      >
+      <Paper style={paperStyles}>
         {loading ? (
-          <CircularProgress style={{ margin: '50px auto', display: 'block' }} />
+          <CircularProgress style={circularProgressStyles} />
         ) : (
           <DataGrid
             sx={{ fontSize: '18px' }}
